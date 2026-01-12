@@ -646,12 +646,45 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            body {
+                background-attachment: scroll;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            header {
+                padding: 50px 15px;
+            }
+
             header h1 {
-                font-size: 2.5em;
+                font-size: 2.6em;
             }
 
             header .subtitle {
                 font-size: 1.2em;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .contact-info span {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav ul {
+                gap: 12px;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav a {
+                width: 100%;
+                text-align: center;
             }
 
             .section {
@@ -659,15 +692,11 @@
             }
 
             .section-title {
-                font-size: 2em;
+                font-size: 2.1em;
             }
 
             .stats {
-                grid-template-columns: 1fr;
-            }
-
-            .nav ul {
-                gap: 20px;
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
             }
 
             .about-content {
@@ -675,15 +704,71 @@
             }
 
             .timeline-item {
-                padding-left: 30px;
+                padding-left: 25px;
             }
 
             .project {
                 padding: 25px;
             }
 
+            .project h3 {
+                font-size: 1.6em;
+            }
+
             .skills {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2.2em;
+            }
+
+            header .subtitle {
+                font-size: 1em;
+            }
+
+            .stat-card {
+                padding: 30px 20px;
+            }
+
+            .section {
+                padding: 25px 16px;
+            }
+
+            .section-title {
+                font-size: 1.8em;
+            }
+
+            .timeline-item .period,
+            .project .period {
+                font-size: 0.95em;
+            }
+
+            .project {
+                padding: 20px 16px;
+            }
+
+            .project .tech-stack {
+                gap: 8px;
+            }
+
+            .project .description,
+            .project .achievements li {
+                font-size: 0.95em;
+            }
+
+            .skill-category {
+                padding: 25px 18px;
+            }
+
+            .highlight-item {
+                padding: 15px;
+            }
+
+            footer {
+                padding: 40px 20px;
             }
         }
 
