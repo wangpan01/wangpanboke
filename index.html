@@ -1106,6 +1106,69 @@
             color: white;
             opacity: 0.9;
         }
+
+        /* 移动端响应式样式 */
+        @media (max-width: 1024px) {
+            .pc-screen {
+                flex-direction: column;
+                min-height: auto;
+            }
+
+            .pc-sidebar {
+                width: 100%;
+                padding: 20px;
+            }
+
+            .pc-menu {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .pc-header-bar {
+                padding: 20px;
+            }
+
+            .pc-content {
+                padding: 20px;
+            }
+
+            .pc-stats-row {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .pc-charts-row {
+                grid-template-columns: 1fr;
+            }
+
+            .pc-table-card {
+                overflow-x: auto;
+            }
+
+            .pc-table {
+                min-width: 600px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .pc-stats-row {
+                grid-template-columns: 1fr;
+            }
+
+            .pc-menu {
+                grid-template-columns: 1fr;
+            }
+
+            .pc-stat-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .pc-stat-icon {
+                margin: 0 auto 15px;
+            }
+        }
     </style>
 </head>
 <body>
