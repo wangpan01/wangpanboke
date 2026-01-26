@@ -3,1401 +3,769 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>王攀 - 前端开发工程师 | 个人简历</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>倾理理发店预约小程序原型图</title>
     <style>
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
-        :root {
-            --primary-color: #667eea;
-            --secondary-color: #764ba2;
-            --accent-color: #f093fb;
-            --text-primary: #2d3748;
-            --text-secondary: #4a5568;
-            --text-light: #718096;
-            --bg-light: #f7fafc;
-            --bg-white: #ffffff;
-            --border-color: #e2e8f0;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
-            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
-            --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
-            --shadow-xl: 0 20px 40px rgba(0,0,0,0.2);
-        }
-
+        
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            line-height: 1.7;
-            color: var(--text-primary);
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            background-attachment: fixed;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: #f5f5f5;
             padding: 20px;
+            color: #333;
         }
-
-        /* Header Styles */
-        header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
-            color: white;
-            padding: 80px 20px;
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
             text-align: center;
-            margin-bottom: 30px;
-            box-shadow: var(--shadow-xl);
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: rotate 20s linear infinite;
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        header > * {
-            position: relative;
-            z-index: 1;
-        }
-
-        header h1 {
-            font-size: 4em;
-            margin-bottom: 15px;
-            font-weight: 800;
-            letter-spacing: -1px;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            animation: fadeInDown 1s ease-out;
-        }
-
-        header .subtitle {
-            font-size: 1.5em;
-            opacity: 0.95;
-            margin-bottom: 25px;
-            font-weight: 300;
-            letter-spacing: 1px;
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-            animation: fadeInUp 1s ease-out 0.4s both;
-        }
-
-        .contact-info span {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 24px;
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
-            border-radius: 50px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .contact-info span:hover {
-            background: rgba(255,255,255,0.25);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Navigation */
-        .nav {
-            background: var(--bg-white);
-            padding: 10px 0;
-            margin-bottom: 30px;
-            box-shadow: var(--shadow-md);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            background: rgba(255,255,255,0.95);
-        }
-
-        .nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            flex-wrap: wrap;
-        }
-
-        .nav a {
-            text-decoration: none;
-            color: var(--text-primary);
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 10px;
             font-weight: 600;
-            font-size: 1.05em;
-            padding: 10px 20px;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            position: relative;
         }
-
-        .nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 5px;
-            left: 50%;
-            transform: translateX(-50%) scaleX(0);
-            width: 60%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-            border-radius: 2px;
-            transition: transform 0.3s ease;
+        
+        .subtitle {
+            text-align: center;
+            color: #999;
+            margin-bottom: 40px;
+            font-size: 14px;
         }
-
-        .nav a:hover {
-            color: var(--primary-color);
-        }
-
-        .nav a:hover::after {
-            transform: translateX(-50%) scaleX(1);
-        }
-
-        .nav a.active {
-            color: var(--primary-color);
-        }
-
-        .nav a.active::after {
-            transform: translateX(-50%) scaleX(1);
-        }
-
-        /* Section Styles */
+        
         .section {
-            background: var(--bg-white);
-            padding: 50px;
-            margin-bottom: 40px;
-            border-radius: 20px;
-            box-shadow: var(--shadow-lg);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .section:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .section-title {
-            font-size: 2.5em;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            position: relative;
-            color: var(--text-primary);
-            font-weight: 700;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 80px;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-            border-radius: 3px;
-        }
-
-        /* Stats Cards */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
             margin-bottom: 50px;
         }
-
-        .stat-card {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
-            padding: 40px 30px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: var(--shadow-lg);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+        
+        .section-title {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 24px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+            font-weight: 600;
         }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
+        
+        .phone-container {
+            display: inline-block;
+            vertical-align: top;
+            margin: 0 15px 30px 15px;
+            position: relative;
+        }
+        
+        .phone-frame {
+            width: 200px;
+            height: 400px;
+            border: 2px solid #ddd;
+            border-radius: 20px;
+            padding: 8px;
+            background: #f5f5f5;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .phone-screen {
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
-            transition: all 0.5s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .stat-card:hover::before {
-            top: -30%;
-            right: -30%;
-        }
-
-        .stat-card .number {
-            font-size: 3.5em;
-            font-weight: 800;
-            margin-bottom: 15px;
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
             position: relative;
-            z-index: 1;
         }
-
-        .stat-card .label {
-            font-size: 1.2em;
-            opacity: 0.95;
-            font-weight: 500;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+        
+        .phone-header {
+            height: 44px;
+            background: #07c160;
+            display: flex;
             align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 15px;
+            font-weight: 500;
         }
-
-        .about-text {
-            font-size: 1.1em;
-            color: var(--text-secondary);
-            line-height: 1.9;
+        
+        .phone-content {
+            height: calc(100% - 44px);
+            padding: 12px;
+            overflow-y: auto;
+            background: #f7f7f7;
         }
-
-        .about-highlights {
-            display: grid;
-            gap: 20px;
-        }
-
-        .highlight-item {
-            padding: 20px;
-            background: var(--bg-light);
-            border-radius: 15px;
-            border-left: 4px solid var(--primary-color);
-            transition: all 0.3s ease;
-        }
-
-        .highlight-item:hover {
-            background: linear-gradient(90deg, var(--bg-light) 0%, rgba(102, 126, 234, 0.05) 100%);
-            transform: translateX(10px);
-        }
-
-        .highlight-item h4 {
-            color: var(--primary-color);
+        
+        .page-title {
+            font-size: 13px;
+            font-weight: 600;
             margin-bottom: 10px;
-            font-size: 1.2em;
+            color: #333;
+            text-align: center;
+            padding: 8px;
+            background: #fff;
+            border-radius: 6px;
         }
-
-        /* Timeline */
-        .timeline-item {
-            margin-bottom: 50px;
-            padding-left: 40px;
-            border-left: 4px solid var(--primary-color);
-            position: relative;
-            transition: all 0.3s ease;
+        
+        .block {
+            background: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+            font-size: 11px;
         }
-
-        .timeline-item:hover {
-            border-left-color: var(--accent-color);
-            transform: translateX(10px);
+        
+        .block-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 6px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
         }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -10px;
-            top: 8px;
+        
+        .block-content {
+            color: #666;
+            font-size: 10px;
+            line-height: 1.6;
+            margin-top: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .button {
+            background: #07c160;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 13px;
+            margin: 8px 0;
+            cursor: pointer;
+            font-weight: 500;
+            border: none;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .button-secondary {
+            background: #1989fa;
+        }
+        
+        .button-gray {
+            background: #f0f0f0;
+            color: #666;
+        }
+        
+        .list-item {
+            padding: 12px;
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            font-size: 11px;
+        }
+        
+        .list-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .icon {
+            display: inline-block;
             width: 20px;
             height: 20px;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            border-radius: 50%;
-            border: 4px solid var(--bg-white);
-            box-shadow: 0 0 0 4px var(--primary-color);
-            transition: all 0.3s ease;
+            background: #07c160;
+            border-radius: 4px;
+            margin-right: 8px;
+            vertical-align: middle;
+            flex-shrink: 0;
         }
-
-        .timeline-item:hover::before {
-            transform: scale(1.3);
-            box-shadow: 0 0 0 4px var(--accent-color), 0 0 20px rgba(102, 126, 234, 0.5);
-        }
-
-        .timeline-item .period {
-            color: var(--primary-color);
-            font-weight: 700;
-            font-size: 1.1em;
+        
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            padding: 12px;
             margin-bottom: 8px;
-            display: inline-block;
-            padding: 5px 15px;
-            background: rgba(102, 126, 234, 0.1);
-            border-radius: 20px;
+            border-left: 3px solid #07c160;
         }
-
-        .timeline-item h3 {
-            font-size: 1.8em;
-            margin-bottom: 12px;
-            color: var(--text-primary);
-            font-weight: 700;
-        }
-
-        .timeline-item .company {
-            color: var(--text-secondary);
-            font-size: 1.2em;
-            margin-bottom: 20px;
+        
+        .service-name {
             font-weight: 600;
-        }
-
-        .timeline-item .description {
-            color: var(--text-secondary);
-            line-height: 2;
-            font-size: 1.05em;
-        }
-
-        .timeline-item ul {
-            margin-left: 25px;
-            margin-top: 15px;
-        }
-
-        .timeline-item li {
-            margin-bottom: 12px;
-            color: var(--text-secondary);
-            line-height: 1.8;
-            position: relative;
-            padding-left: 10px;
-        }
-
-        .timeline-item li::before {
-            content: '▸';
-            position: absolute;
-            left: -15px;
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-
-        /* Project Cards */
-        .project {
-            margin-bottom: 50px;
-            padding: 40px;
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-            border-radius: 20px;
-            border-left: 6px solid var(--primary-color);
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s ease;
-            position: relative;
+            color: #333;
+            font-size: 13px;
+            margin-bottom: 6px;
+            white-space: nowrap;
             overflow: hidden;
+            text-overflow: ellipsis;
         }
-
-        .project::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 6px;
-            height: 100%;
-            background: linear-gradient(180deg, var(--primary-color), var(--accent-color));
-            transition: width 0.3s ease;
+        
+        .service-info {
+            font-size: 11px;
+            color: #999;
+            display: flex;
+            justify-content: space-between;
+            white-space: nowrap;
         }
-
-        .project:hover {
-            transform: translateX(10px);
-            box-shadow: var(--shadow-xl);
+        
+        .price {
+            color: #ff4d4f;
+            font-weight: 600;
+            white-space: nowrap;
         }
-
-        .project:hover::before {
-            width: 100%;
-            opacity: 0.05;
+        
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #07c160;
+            margin: 0 auto 10px;
         }
-
-        .project h3 {
-            font-size: 2em;
-            margin-bottom: 15px;
-            color: var(--text-primary);
-            font-weight: 700;
-            position: relative;
-            z-index: 1;
-        }
-
-        .project .period {
-            color: var(--primary-color);
-            font-weight: 700;
-            margin-bottom: 20px;
-            font-size: 1.1em;
+        
+        .status-tag {
             display: inline-block;
-            padding: 8px 20px;
-            background: rgba(102, 126, 234, 0.1);
-            border-radius: 25px;
-            position: relative;
-            z-index: 1;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 500;
+            margin-top: 6px;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
-
-        .project .tech-stack {
+        
+        .tag-waiting {
+            background: #fff7e6;
+            color: #fa8c16;
+        }
+        
+        .tag-completed {
+            background: #f6ffed;
+            color: #52c41a;
+        }
+        
+        .tag-cancelled {
+            background: #fff1f0;
+            color: #ff4d4f;
+        }
+        
+        .tag-signed {
+            background: #e6f7ff;
+            color: #1890ff;
+        }
+        
+        .admin-panel {
+            width: 100%;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 24px;
+            background: #fafafa;
+        }
+        
+        .admin-header {
+            background: #07c160;
+            color: white;
+            padding: 16px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .admin-menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .menu-item {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 16px;
+            cursor: pointer;
+        }
+        
+        .menu-item-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        
+        .menu-item-desc {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .admin-content {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            min-height: 200px;
+        }
+        
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+        
+        .table th,
+        .table td {
+            border: 1px solid #e0e0e0;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .table th {
+            background: #f7f7f7;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .table tbody tr:nth-child(even) {
+            background: #fafafa;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 500;
+            background: #f0f0f0;
+            color: #666;
+        }
+        
+        .status-success {
+            background: #f6ffed;
+            color: #52c41a;
+        }
+        
+        .status-warning {
+            background: #fff7e6;
+            color: #fa8c16;
+        }
+        
+        .row {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            margin: 25px 0;
-            position: relative;
-            z-index: 1;
+            justify-content: center;
+            margin-bottom: 20px;
         }
-
-        .tech-tag {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-size: 0.95em;
-            font-weight: 600;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-        }
-
-        .tech-tag:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: var(--shadow-md);
-        }
-
-        .project .description {
-            color: var(--text-secondary);
-            line-height: 1.9;
-            margin-bottom: 25px;
-            font-size: 1.05em;
-            position: relative;
-            z-index: 1;
-        }
-
-        .project .achievements {
-            margin-top: 30px;
-            padding-top: 25px;
-            border-top: 2px dashed var(--border-color);
-            position: relative;
-            z-index: 1;
-        }
-
-        .project .achievements h4 {
-            color: var(--text-primary);
-            margin-bottom: 15px;
-            font-size: 1.3em;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .project .achievements h4::before {
-            content: '⭐';
-            font-size: 1.2em;
-        }
-
-        .project .achievements ul {
-            margin-left: 25px;
-        }
-
-        .project .achievements li {
-            margin-bottom: 12px;
-            color: var(--text-secondary);
-            line-height: 1.9;
-            position: relative;
-            padding-left: 10px;
-        }
-
-        .project .achievements li::before {
-            content: '✓';
-            position: absolute;
-            left: -15px;
-            color: var(--primary-color);
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-
-        /* Skills Grid */
-        .skills {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .skill-category {
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-            padding: 35px;
-            border-radius: 20px;
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s ease;
-            border-top: 4px solid var(--primary-color);
-        }
-
-        .skill-category:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-xl);
-            border-top-color: var(--accent-color);
-        }
-
-        .skill-category h3 {
-            color: var(--primary-color);
-            margin-bottom: 25px;
-            font-size: 1.5em;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .skill-category h3::before {
-            content: '▸';
-            font-size: 1.2em;
-        }
-
-        .skill-category ul {
-            list-style: none;
-        }
-
-        .skill-category li {
-            padding: 12px 0;
-            color: var(--text-secondary);
-            border-bottom: 1px solid var(--border-color);
-            font-size: 1.05em;
-            transition: all 0.3s ease;
-            padding-left: 10px;
-        }
-
-        .skill-category li:last-child {
-            border-bottom: none;
-        }
-
-        .skill-category li:hover {
-            color: var(--primary-color);
-            transform: translateX(10px);
-            font-weight: 600;
-        }
-
-        .skill-category li::before {
-            content: '•';
-            color: var(--primary-color);
-            font-weight: bold;
-            margin-right: 10px;
-            font-size: 1.5em;
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
-            color: white;
+        
+        .flow-arrow {
             text-align: center;
-            padding: 50px 30px;
-            margin-top: 60px;
-        }
-
-        footer p {
-            margin-bottom: 10px;
-            opacity: 0.9;
-        }
-
-        footer p:last-child {
-            margin-bottom: 0;
-            opacity: 0.7;
-            font-size: 0.9em;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            body {
-                background-attachment: scroll;
-            }
-
-            .container {
-                padding: 15px;
-            }
-
-            header {
-                padding: 50px 15px;
-            }
-
-            header h1 {
-                font-size: 2.6em;
-            }
-
-            header .subtitle {
-                font-size: 1.2em;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .contact-info span {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .nav {
-                padding: 2px 0;
-                position: sticky;
-                top: 0;
-                background: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(8px);
-                margin-bottom: 20px;
-            }
-
-            .nav ul {
-                gap: 10px;
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                padding: 0 12px;
-                scrollbar-width: none;
-            }
-
-            .nav ul::-webkit-scrollbar {
-                display: none;
-            }
-
-            .nav a {
-                flex: 0 0 auto;
-                text-align: center;
-                padding: 4px 10px;
-                font-size: 0.88em;
-                white-space: nowrap;
-            }
-
-            .section {
-                padding: 30px 20px;
-                margin-bottom: 30px;
-            }
-
-            .section-title {
-                font-size: 2.1em;
-            }
-
-            .stats {
-                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .timeline-item {
-                padding-left: 25px;
-            }
-
-            .project {
-                padding: 25px;
-            }
-
-            .project h3 {
-                font-size: 1.6em;
-            }
-
-            .skills {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 2.2em;
-            }
-
-            header .subtitle {
-                font-size: 1em;
-            }
-
-            .nav {
-                padding: 2px 0;
-                margin-bottom: 16px;
-            }
-
-            .nav ul {
-                gap: 8px;
-                padding: 0 10px;
-            }
-
-            .nav a {
-                padding: 4px 8px;
-                font-size: 0.82em;
-            }
-
-            .stat-card {
-                padding: 30px 20px;
-            }
-
-            .section {
-                padding: 25px 16px;
-                margin-bottom: 24px;
-            }
-
-            .section-title {
-                font-size: 1.8em;
-            }
-
-            .timeline-item .period,
-            .project .period {
-                font-size: 0.95em;
-            }
-
-            .project {
-                padding: 20px 16px;
-            }
-
-            .project .tech-stack {
-                gap: 8px;
-            }
-
-            .project .description,
-            .project .achievements li {
-                font-size: 0.95em;
-            }
-
-            .skill-category {
-                padding: 25px 18px;
-            }
-
-            .highlight-item {
-                padding: 15px;
-            }
-
-            footer {
-                padding: 40px 20px;
-            }
-        }
-
-        /* Scroll animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-            will-change: opacity, transform;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-            will-change: auto;
+            color: #999;
+            font-size: 24px;
+            margin: 10px 0;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>王攀</h1>
-        <div class="subtitle">前端开发工程师 | 4年丰富工作经验</div>
-        <div class="contact-info">
-            <span>📱 17691256961</span>
-            <span>📧 w2550687516@126.com</span>
-            <span>📍 西安</span>
-            <span>💼 求职意向：前端开发工程师</span>
-        </div>
-    </header>
-
-    <nav class="nav">
-        <ul>
-            <li><a href="#about">关于我</a></li>
-            <li><a href="#experience">工作经历</a></li>
-            <li><a href="#projects">项目经历</a></li>
-            <li><a href="#skills">专业技能</a></li>
-            <li><a href="#education">教育经历</a></li>
-        </ul>
-    </nav>
-
     <div class="container">
-        <!-- Statistics -->
-        <div class="section fade-in">
-            <div class="stats">
-                <div class="stat-card">
-                    <div class="number">4+</div>
-                    <div class="label">年工作经验</div>
+        <h1>倾理理发店预约小程序原型图</h1>
+        <div class="subtitle">简洁高效的预约管理系统</div>
+        
+        <!-- 用户端小程序 -->
+        <div class="section">
+            <div class="section-title">📱 用户端小程序</div>
+            <div class="row">
+                <!-- 首页 -->
+                <div class="phone-container">
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="phone-header">首页</div>
+                            <div class="phone-content">
+                                <div style="background: #07c160; padding: 16px; border-radius: 8px; margin-bottom: 12px; color: white;">
+                                    <div style="font-size: 16px; font-weight: 600; margin-bottom: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">💇 时尚造型</div>
+                                    <div style="font-size: 11px; opacity: 0.95; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">营业时间：9:00-21:00</div>
+                                    <div style="font-size: 11px; opacity: 0.95; margin-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">📍 北京市朝阳区xxx路</div>
+                                    <div style="margin-top: 8px; white-space: nowrap;">
+                                        <span style="font-size: 15px; font-weight: 600;">⭐ 4.8</span>
+                                        <span style="font-size: 11px; opacity: 0.95;"> (128条评价)</span>
+                                    </div>
+                                </div>
+                                <div style="height: 60px; background: #f0f0f0; border-radius: 8px; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; color: #999; font-size: 11px; white-space: nowrap;">
+                                    📸 店铺环境展示
+                                </div>
+                                <div style="font-size: 13px; font-weight: 600; color: #333; margin-bottom: 8px; white-space: nowrap;">服务项目</div>
+                                <div class="service-card">
+                                    <div class="service-name">✂️ 剪发</div>
+                                    <div class="service-info">
+                                        <span>30分钟</span>
+                                        <span class="price">¥50</span>
+                                    </div>
+                                </div>
+                                <div class="service-card">
+                                    <div class="service-name">💇 烫发</div>
+                                    <div class="service-info">
+                                        <span>120分钟</span>
+                                        <span class="price">¥200</span>
+                                    </div>
+                                </div>
+                                <div class="service-card">
+                                    <div class="service-name">🎨 染发</div>
+                                    <div class="service-info">
+                                        <span>90分钟</span>
+                                        <span class="price">¥180</span>
+                                    </div>
+                                </div>
+                                <div class="button" style="margin-top: 12px; width: 100%;">立即预约</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <div class="number">Vue</div>
-                    <div class="label">核心专长</div>
+                
+                <!-- 预约页面 -->
+                <div class="phone-container">
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="phone-header">在线预约</div>
+                            <div class="phone-content">
+                                <div class="block">
+                                    <div class="block-title">📋 选择服务项目</div>
+                                    <div style="margin-top: 8px; padding: 10px; background: #f7f7f7; border-radius: 6px;">
+                                        <div style="font-weight: 600; color: #333; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">剪发</div>
+                                        <div style="font-size: 11px; color: #999; margin-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">¥50 · 30分钟</div>
+                                    </div>
+                                </div>
+                                <div class="block">
+                                    <div class="block-title">👤 选择服务师</div>
+                                    <div style="margin-top: 8px;">
+                                        <div style="padding: 10px; background: #f7f7f7; border-radius: 6px; margin-bottom: 6px;">
+                                            <div style="font-weight: 600; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">张师傅</div>
+                                            <div style="font-size: 10px; color: #fa8c16; margin-top: 2px; white-space: nowrap;">⭐ 4.9</div>
+                                        </div>
+                                        <div style="padding: 10px; background: #f7f7f7; border-radius: 6px;">
+                                            <div style="font-weight: 600; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">李师傅</div>
+                                            <div style="font-size: 10px; color: #fa8c16; margin-top: 2px; white-space: nowrap;">⭐ 4.8</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block">
+                                    <div class="block-title">📅 选择时间</div>
+                                    <div style="margin-top: 8px; padding: 10px; background: #f7f7f7; border-radius: 6px;">
+                                        <div style="font-weight: 600; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">2026-01-27</div>
+                                        <div style="font-size: 11px; color: #666; margin-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">⏰ 10:00-11:00</div>
+                                    </div>
+                                </div>
+                                <div class="block">
+                                    <div class="block-title">✍️ 预约信息</div>
+                                    <div style="margin-top: 8px;">
+                                        <div style="padding: 8px; background: #f7f7f7; border-radius: 4px; margin-bottom: 6px; font-size: 11px; color: #999; white-space: nowrap;">姓名</div>
+                                        <div style="padding: 8px; background: #f7f7f7; border-radius: 4px; margin-bottom: 6px; font-size: 11px; color: #999; white-space: nowrap;">电话</div>
+                                        <div style="padding: 8px; background: #f7f7f7; border-radius: 4px; font-size: 11px; color: #999; white-space: nowrap;">备注（选填）</div>
+                                    </div>
+                                </div>
+                                <div class="button" style="width: 100%; margin-top: 8px;">确认预约</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <div class="number">200万</div>
-                    <div class="label">节省成本(元)</div>
+                
+                <!-- 我的预约 -->
+                <div class="phone-container">
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="phone-header">我的预约</div>
+                            <div class="phone-content">
+                                <div class="list-item">
+                                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 6px; gap: 8px;">
+                                        <div style="flex: 1; min-width: 0;">
+                                            <div style="font-weight: 600; font-size: 12px; color: #2c3e50; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">剪发</div>
+                                            <div style="font-size: 10px; color: #999; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">张师傅 · 2026-01-27 10:00</div>
+                                        </div>
+                                        <span class="status-tag tag-waiting">待服务</span>
+                                    </div>
+                                    <div class="button button-secondary" style="padding: 6px 12px; font-size: 10px; margin-top: 6px; width: 100%;">到店签到</div>
+                                </div>
+                                <div class="list-item">
+                                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 6px; gap: 8px;">
+                                        <div style="flex: 1; min-width: 0;">
+                                            <div style="font-weight: 600; font-size: 12px; color: #2c3e50; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">烫发</div>
+                                            <div style="font-size: 10px; color: #999; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">李师傅 · 2026-01-25 14:00</div>
+                                        </div>
+                                        <span class="status-tag tag-completed">已完成</span>
+                                    </div>
+                                    <div class="button button-gray" style="padding: 6px 12px; font-size: 10px; margin-top: 6px; width: 100%;">去评价</div>
+                                </div>
+                                <div class="list-item">
+                                    <div style="display: flex; justify-content: space-between; align-items: start; gap: 8px;">
+                                        <div style="flex: 1; min-width: 0;">
+                                            <div style="font-weight: 600; font-size: 12px; color: #2c3e50; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">染发</div>
+                                            <div style="font-size: 10px; color: #999; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">王师傅 · 2026-01-20 16:00</div>
+                                        </div>
+                                        <span class="status-tag tag-cancelled">已取消</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <div class="number">50%</div>
-                    <div class="label">效率提升</div>
+                
+                <!-- 到店签到 -->
+                <div class="phone-container">
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="phone-header">到店签到</div>
+                            <div class="phone-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px;">
+                                <div style="width: 140px; height: 140px; background: #07c160; border-radius: 8px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; font-size: 48px;">
+                                    📷
+                                </div>
+                                <div style="text-align: center; margin-bottom: 20px;">
+                                    <div style="font-weight: 600; font-size: 14px; color: #333; margin-bottom: 6px; white-space: nowrap;">扫描店铺二维码</div>
+                                    <div style="font-size: 11px; color: #999; white-space: nowrap;">或点击下方按钮签到</div>
+                                </div>
+                                <div class="button" style="width: 85%; padding: 12px;">手动签到</div>
+                                <div style="margin-top: 20px; padding: 12px; background: white; border-radius: 8px; font-size: 11px; color: #666; text-align: center; width: 100%;">
+                                    <div style="font-weight: 600; color: #333; margin-bottom: 6px; white-space: nowrap;">预约信息</div>
+                                    <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">剪发 - 张师傅</div>
+                                    <div style="margin-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">2026-01-27 10:00</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 服务评价 -->
+                <div class="phone-container">
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="phone-header">服务评价</div>
+                            <div class="phone-content">
+                                <div class="block">
+                                    <div class="block-title">💇 服务项目</div>
+                                    <div style="margin-top: 8px; padding: 10px; background: #f7f7f7; border-radius: 6px;">
+                                        <div style="font-weight: 600; font-size: 12px; color: #333; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">烫发 - 李师傅</div>
+                                    </div>
+                                </div>
+                                <div class="block">
+                                    <div class="block-title">⭐ 评分</div>
+                                    <div style="margin-top: 8px; text-align: center; font-size: 24px; color: #fa8c16; white-space: nowrap;">⭐⭐⭐⭐⭐</div>
+                                </div>
+                                <div class="block">
+                                    <div class="block-title">✍️ 评价内容</div>
+                                    <div style="margin-top: 8px; min-height: 70px; background: #f7f7f7; border-radius: 6px; padding: 10px; font-size: 11px; color: #999; border: 1px solid #e0e0e0;">请输入评价内容...</div>
+                                </div>
+                                <div class="block">
+                                    <div class="block-title">📷 上传照片</div>
+                                    <div style="margin-top: 8px; padding: 20px; background: #f7f7f7; border-radius: 6px; text-align: center; color: #999; font-size: 11px; border: 1px dashed #d9d9d9; white-space: nowrap;">
+                                        + 上传服务效果图
+                                    </div>
+                                </div>
+                                <div class="button" style="width: 100%; margin-top: 8px;">提交评价</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 个人中心 -->
+                <div class="phone-container">
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="phone-header">个人中心</div>
+                            <div class="phone-content">
+                                <div style="text-align: center; padding: 24px 0 20px 0;">
+                                    <div class="avatar"></div>
+                                    <div style="font-weight: 600; font-size: 14px; color: #2c3e50; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">用户昵称</div>
+                                    <div style="font-size: 11px; color: #999; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">138****8888</div>
+                                </div>
+                                <div class="list-item" style="display: flex; align-items: center; gap: 8px;">
+                                    <span class="icon"></span>
+                                    <span style="flex: 1; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">我的预约</span>
+                                    <span style="color: #999; font-size: 10px; flex-shrink: 0;">></span>
+                                </div>
+                                <div class="list-item" style="display: flex; align-items: center; gap: 8px;">
+                                    <span class="icon"></span>
+                                    <span style="flex: 1; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">我的收藏</span>
+                                    <span style="color: #999; font-size: 10px; flex-shrink: 0;">></span>
+                                </div>
+                                <div class="list-item" style="display: flex; align-items: center; gap: 8px;">
+                                    <span class="icon"></span>
+                                    <span style="flex: 1; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">消息通知</span>
+                                    <span style="color: #999; font-size: 10px; flex-shrink: 0;">></span>
+                                </div>
+                                <div class="list-item" style="display: flex; align-items: center; gap: 8px;">
+                                    <span class="icon"></span>
+                                    <span style="flex: 1; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">关于我们</span>
+                                    <span style="color: #999; font-size: 10px; flex-shrink: 0;">></span>
+                                </div>
+                                <div class="list-item" style="display: flex; align-items: center; gap: 8px;">
+                                    <span class="icon"></span>
+                                    <span style="flex: 1; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">客服联系</span>
+                                    <span style="color: #999; font-size: 10px; flex-shrink: 0;">></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <!-- About Section -->
-        <section id="about" class="section fade-in">
-            <h2 class="section-title">关于我</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p style="font-size: 1.2em; margin-bottom: 20px; font-weight: 600; color: var(--text-primary);">
-                        专注于前端开发领域，拥有4年丰富的实战经验，擅长Vue.js生态系统开发，具备从0到1构建大型企业级应用的能力。
-                    </p>
-                    <p style="margin-bottom: 15px;">
-                        我热爱前端技术，追求代码质量和用户体验的完美结合。在职业生涯中，我主导开发了多个核心业务系统，包括企业级SaaS人事管理系统、多平台广告管理系统、智能采集插件等，为企业节省成本超过200万元，显著提升了业务效率。
-                    </p>
-                    <p>
-                        技术栈覆盖Vue 2/3、TypeScript、uni-app、微信小程序等，熟悉现代前端工程化工具链。我始终关注技术前沿，善于将新技术应用到实际项目中，通过技术创新推动业务发展。
-                    </p>
-                </div>
-                <div class="about-highlights">
-                    <div class="highlight-item">
-                        <h4>🎯 专业能力</h4>
-                        <p>熟练掌握Vue.js生态系统，具备大型项目架构设计和开发能力</p>
+        
+        <!-- 商户端管理后台 -->
+        <div class="section">
+            <div class="section-title">💻 商户端管理后台</div>
+            <div class="admin-panel">
+                <div class="admin-header">管理后台</div>
+                
+                <div class="admin-menu">
+                    <div class="menu-item">
+                        <div class="menu-item-title">📋 预约管理</div>
+                        <div class="menu-item-desc">查看预约列表、确认/取消预约、到店签到核销、预约统计</div>
                     </div>
-                    <div class="highlight-item">
-                        <h4>🚀 技术创新</h4>
-                        <p>采用Vue 3 Composition API，代码复用率提升40%，编译速度提升200%</p>
+                    <div class="menu-item">
+                        <div class="menu-item-title">✂️ 服务管理</div>
+                        <div class="menu-item-desc">服务项目管理、服务师管理、排班管理、业绩统计</div>
                     </div>
-                    <div class="highlight-item">
-                        <h4>💼 业务价值</h4>
-                        <p>通过系统优化，为企业节省成本200万，工作效率提升50%以上</p>
+                    <div class="menu-item">
+                        <div class="menu-item-title">📊 数据统计</div>
+                        <div class="menu-item-desc">预约量统计、客户分析、服务项目排行、服务师业绩</div>
                     </div>
-                    <div class="highlight-item">
-                        <h4>🤝 团队协作</h4>
-                        <p>具备良好的团队协作能力，擅长跨部门沟通，推动项目顺利交付</p>
+                    <div class="menu-item">
+                        <div class="menu-item-title">⚙️ 系统设置</div>
+                        <div class="menu-item-desc">店铺信息、预约规则、通知设置、权限管理</div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Work Experience -->
-        <section id="experience" class="section fade-in">
-            <h2 class="section-title">工作经历</h2>
-            
-            <div class="timeline-item">
-                <div class="period">2025.09 - 至今</div>
-                <h3>前端开发工程师</h3>
-                <div class="company">陕西普思网络科技</div>
-                <div class="description">
-                    <p>在陕西普思网络科技工作期间，我负责多个核心业务系统的前端开发工作，使用Vue 2/3、jQuery等技术栈，参与产品规划和技术方案设计，推动项目高质量交付。</p>
-                    <ul>
-                        <li><strong>核心系统开发：</strong>主导开发了众创云灵活用工平台及其后台管理系统、审核中心系统、任务中心系统、绩效管理系统、薪酬管理系统等多个核心业务系统</li>
-                        <li><strong>技术栈应用：</strong>根据项目需求，灵活使用Vue 2/3、jQuery、Ant Design Vue、Element UI等技术栈，确保项目的技术先进性和可维护性</li>
-                        <li><strong>系统优化：</strong>优化现有系统的性能和用户体验，通过代码重构和性能优化，系统响应速度提升35%</li>
-                        <li><strong>团队协作：</strong>与产品、设计、后端团队紧密配合，推动项目按期上线，项目交付及时率达到98%以上</li>
-                        <li><strong>技术攻关：</strong>参与技术攻关和代码审查，解决项目中的技术难点，提升系统稳定性</li>
-                        <li><strong>工程化建设：</strong>参与前端工程化建设，制定了代码规范和开发流程，提升开发效率</li>
-                    </ul>
+                
+                <div class="admin-content">
+                    <div style="font-weight: 600; margin-bottom: 16px; color: #333; font-size: 15px;">预约列表（今日）</div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>客户姓名</th>
+                                <th>服务项目</th>
+                                <th>服务师</th>
+                                <th>预约时间</th>
+                                <th>状态</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>张三</td>
+                                <td>剪发</td>
+                                <td>张师傅</td>
+                                <td>10:00-10:30</td>
+                                <td><span class="status-badge tag-signed">已签到</span></td>
+                                <td><span style="color: #1989fa; cursor: pointer; font-size: 11px;">查看</span></td>
+                            </tr>
+                            <tr>
+                                <td>李四</td>
+                                <td>烫发</td>
+                                <td>李师傅</td>
+                                <td>14:00-16:00</td>
+                                <td><span class="status-badge">待确认</span></td>
+                                <td><span style="color: #667eea; cursor: pointer; font-size: 11px; font-weight: 500;">确认</span></td>
+                            </tr>
+                            <tr>
+                                <td>王五</td>
+                                <td>染发</td>
+                                <td>王师傅</td>
+                                <td>16:00-17:30</td>
+                                <td><span class="status-badge status-success">已完成</span></td>
+                                <td><span style="color: #1989fa; cursor: pointer; font-size: 11px;">查看</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div style="margin-top: 24px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+                        <div style="background: white; border: 1px solid #e0e0e0; padding: 16px; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 28px; font-weight: 600; color: #333; margin-bottom: 4px;">12</div>
+                            <div style="font-size: 12px; color: #666;">今日预约</div>
+                        </div>
+                        <div style="background: white; border: 1px solid #e0e0e0; padding: 16px; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 28px; font-weight: 600; color: #52c41a; margin-bottom: 4px;">8</div>
+                            <div style="font-size: 12px; color: #666;">已完成</div>
+                        </div>
+                        <div style="background: white; border: 1px solid #e0e0e0; padding: 16px; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 28px; font-weight: 600; color: #fa8c16; margin-bottom: 4px;">3</div>
+                            <div style="font-size: 12px; color: #666;">进行中</div>
+                        </div>
+                        <div style="background: white; border: 1px solid #e0e0e0; padding: 16px; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 28px; font-weight: 600; color: #ff4d4f; margin-bottom: 4px;">1</div>
+                            <div style="font-size: 12px; color: #666;">已取消</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <div class="timeline-item">
-                <div class="period">2022.04 - 2025.07</div>
-                <h3>前端开发工程师</h3>
-                <div class="company">三态电子商务有限公司</div>
-                <div class="description">
-                    <p>在三态电商工作期间，我负责多个核心业务系统的开发和维护，积累了丰富的大型项目开发经验。</p>
-                    <ul>
-                        <li><strong>系统优化与维护：</strong>负责优化及维护关键企业系统，包括广告管理系统、财务影像系统、测试管理及智能编辑系统，确保系统稳定性与效率，有效支持业务连续性。通过性能优化，系统响应速度提升30%。</li>
-                        <li><strong>核心系统开发：</strong>主导开发了eHR系列的招聘、薪酬、假勤管理系统，星火系统，RPA爬虫系统等。采用Vue 3 + TypeScript技术栈，通过敏捷开发方法论，实现系统功能的快速迭代与高质量交付，显著提升了人力资源管理效率，减少公司成本约200万元。</li>
-                        <li><strong>团队协作：</strong>与产品、设计、后端团队紧密配合，推动项目按期上线，项目交付及时率达到95%以上。</li>
-                        <li><strong>技术创新：</strong>引入Vue 3 Composition API和TypeScript，提升代码质量和可维护性，Bug率降低30%。</li>
-                    </ul>
+        </div>
+        
+        <!-- 核心功能流程 -->
+        <div class="section">
+            <div class="section-title">🔄 核心功能流程</div>
+            <div style="background: #fafafa; padding: 30px; border-radius: 8px; text-align: center; border: 1px solid #e0e0e0;">
+                <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap;">
+                    <div style="background: white; padding: 20px; border-radius: 8px; border: 1px solid #e0e0e0; min-width: 150px; margin: 10px;">
+                        <div style="font-size: 32px; margin-bottom: 10px;">📱</div>
+                        <div style="font-weight: 600; margin-bottom: 5px; color: #333;">用户预约</div>
+                        <div style="font-size: 12px; color: #666;">选择服务、时间、服务师</div>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div style="background: white; padding: 20px; border-radius: 8px; border: 1px solid #e0e0e0; min-width: 150px; margin: 10px;">
+                        <div style="font-size: 32px; margin-bottom: 10px;">✅</div>
+                        <div style="font-weight: 600; margin-bottom: 5px; color: #333;">到店签到</div>
+                        <div style="font-size: 12px; color: #666;">扫码或手动签到</div>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div style="background: white; padding: 20px; border-radius: 8px; border: 1px solid #e0e0e0; min-width: 150px; margin: 10px;">
+                        <div style="font-size: 32px; margin-bottom: 10px;">💇</div>
+                        <div style="font-weight: 600; margin-bottom: 5px; color: #333;">服务进行</div>
+                        <div style="font-size: 12px; color: #666;">店铺提供服务</div>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div style="background: white; padding: 20px; border-radius: 8px; border: 1px solid #e0e0e0; min-width: 150px; margin: 10px;">
+                        <div style="font-size: 32px; margin-bottom: 10px;">⭐</div>
+                        <div style="font-weight: 600; margin-bottom: 5px; color: #333;">服务评价</div>
+                        <div style="font-size: 12px; color: #666;">客户评价反馈</div>
+                    </div>
                 </div>
             </div>
-
-            <div class="timeline-item">
-                <div class="period">2021.12 - 2022.04</div>
-                <h3>前端开发工程师</h3>
-                <div class="company">陕西全通网络科技有限公司</div>
-                <div class="description">
-                    <p>在全通网络工作期间，我主导了多个关键业务前端页面的开发，积累了丰富的前端开发经验。</p>
-                    <ul>
-                        <li><strong>页面开发与设计：</strong>主导公司关键业务前端页面的开发与视觉设计，通过创新解决方案提升用户交互体验，用户满意度提升25%。</li>
-                        <li><strong>团队协作：</strong>与UI设计师和产品经理紧密协作，针对用户体验进行深入讨论，成功实现界面美化与性能优化措施，页面加载速度提升40%。</li>
-                        <li><strong>技术实现：</strong>负责构建高效的Web界面交互逻辑，并通过axios技术实现与服务端的流畅数据交换。使用Vuex进行状态管理，确保数据流的清晰和可维护。</li>
-                        <li><strong>前后端对接：</strong>与后端开发团队密切合作，确保前后端接口无缝对接，显著提升了前端响应速度和整体性能，接口调用效率提升35%。</li>
-                        <li><strong>质量保障：</strong>对测试团队反馈的问题迅速响应，有效进行bug修复和功能增强，保障项目质量，Bug修复及时率达到100%。</li>
-                        <li><strong>产品优化：</strong>积极参与产品项目的上线过程，并针对用户体验提供实质性反馈，助力产品持续优化。</li>
-                    </ul>
+        </div>
+        
+        <!-- 技术架构 -->
+        <div class="section">
+            <div class="section-title">🏗️ 技术架构</div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                <div style="background: white; padding: 20px; border-radius: 8px; border-left: 4px solid #07c160; border: 1px solid #e0e0e0;">
+                    <div style="font-weight: 600; color: #333; margin-bottom: 10px; font-size: 16px;">前端</div>
+                    <div style="font-size: 13px; color: #666; line-height: 1.8;">
+                        • 微信小程序<br>
+                        • Vue.js / React<br>
+                        • Element UI / Ant Design
+                    </div>
+                </div>
+                <div style="background: white; padding: 20px; border-radius: 8px; border-left: 4px solid #1989fa; border: 1px solid #e0e0e0;">
+                    <div style="font-weight: 600; color: #333; margin-bottom: 10px; font-size: 16px;">后端</div>
+                    <div style="font-size: 13px; color: #666; line-height: 1.8;">
+                        • Java / Node.js / Python<br>
+                        • Spring Boot / Express<br>
+                        • MySQL + Redis
+                    </div>
+                </div>
+                <div style="background: white; padding: 20px; border-radius: 8px; border-left: 4px solid #fa8c16; border: 1px solid #e0e0e0;">
+                    <div style="font-weight: 600; color: #333; margin-bottom: 10px; font-size: 16px;">部署</div>
+                    <div style="font-size: 13px; color: #666; line-height: 1.8;">
+                        • 云服务器<br>
+                        • HTTPS加密<br>
+                        • 数据备份
+                    </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Projects -->
-        <section id="projects" class="section fade-in">
-            <h2 class="section-title">项目经历</h2>
-
-            <div class="project">
-                <div class="period">2025.10 - 至今</div>
-                <h3>众创云 - 灵活用工/任务平台</h3>
-                <div class="tech-stack">
-                    <span class="tech-tag">uni-app</span>
-                    <span class="tech-tag">Vue 2</span>
-                    <span class="tech-tag">uView 2.x</span>
-                    <span class="tech-tag">Vuex</span>
-                    <span class="tech-tag">jQuery</span>
-                    <span class="tech-tag">微信小程序</span>
-                    <span class="tech-tag">App-Plus</span>
-                    <span class="tech-tag">高德地图</span>
-                    <span class="tech-tag">腾讯地图</span>
-                </div>
-                <div class="description">
-                    <p><strong>项目背景：</strong>"众创云"是一个创新的灵活用工和任务分发平台，为企业和个人提供任务发布、接取、完成的完整闭环服务。</p>
-                    <p><strong>核心功能：</strong></p>
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li><strong>用户体系：</strong>登录注册、实名认证（身份证上传OCR识别）、银行卡绑定与验证</li>
-                        <li><strong>任务系统：</strong>任务详情查看、进度跟踪、任务领取与提交，支持多题型问卷填写、图片上传、手写签名等功能</li>
-                        <li><strong>业务功能：</strong>地图定位、城市选择辅助任务分发，横屏签名页面优化用户体验</li>
-                        <li><strong>资金管理：</strong>钱包余额查询、提现申请与记录、近三月账单统计、银行卡管理与申诉处理</li>
-                        <li><strong>用户中心：</strong>个人资料管理、消息中心、排行榜、推荐码/邀请系统、我的团队、物资领取/接收、协议管理、账号注销</li>
-                        <li><strong>合规保障：</strong>录屏/截屏检测拦截（定时检查）、定位授权提示、操作指南、常见问题、反馈系统</li>
-                    </ul>
-                </div>
-                <div class="achievements">
-                    <h4>技术亮点</h4>
-                    <ul>
-                        <li>采用uni-app框架实现一套代码多端运行，支持微信小程序和App-Plus打包Android/iOS</li>
-                        <li>自定义开发了多种问卷题型组件，支持单选、多选、填空、上传等多种交互方式</li>
-                        <li>实现了手写签名功能，支持横屏模式，提供了流畅的签名体验</li>
-                        <li>集成高德/腾讯地图SDK，实现了精准的地理位置定位和城市选择功能</li>
-                        <li>通过微信API实现了录屏/截屏检测拦截，保障平台内容安全</li>
-                        <li>使用Vuex进行全局状态管理，确保复杂业务逻辑下的数据一致性</li>
-                        <li>封装了统一的请求拦截器（axios风格），实现了token管理、错误处理等通用功能</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="project">
-                <div class="period">2025.10 - 至今</div>
-                <h3>众创云后台管理系统</h3>
-                <div class="tech-stack">
-                    <span class="tech-tag">Vue 2</span>
-                    <span class="tech-tag">Ant Design Vue</span>
-                    <span class="tech-tag">Vuex</span>
-                    <span class="tech-tag">Vue Router</span>
-                    <span class="tech-tag">Axios</span>
-                    <span class="tech-tag">ECharts</span>
-                    <span class="tech-tag">jQuery</span>
-                </div>
-                <div class="description">
-                    <p><strong>项目介绍：</strong>众创云后台管理系统是众创云灵活用工平台的后台管理端，用于平台的任务管理、用户管理、资金管理、数据统计等后台运营管理工作。</p>
-                    <p><strong>核心功能：</strong></p>
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li><strong>任务管理：</strong>任务的创建、编辑、审核、发布、下架等全生命周期管理，支持任务批量操作和任务数据导入导出</li>
-                        <li><strong>用户管理：</strong>用户信息管理、用户权限管理、用户状态管理、用户数据统计等功能</li>
-                        <li><strong>资金管理：</strong>资金流水查询、提现审核、资金统计、账单管理等资金相关功能</li>
-                        <li><strong>数据统计：</strong>平台数据统计分析，包括任务统计、用户统计、资金统计等多维度数据展示</li>
-                        <li><strong>审核管理：</strong>审核流程管理、审核任务处理、审核记录查询等功能</li>
-                        <li><strong>系统配置：</strong>系统参数配置、权限配置、菜单配置等系统管理功能</li>
-                    </ul>
-                </div>
-                <div class="achievements">
-                    <h4>技术亮点</h4>
-                    <ul>
-                        <li>采用Vue 2 + Ant Design Vue技术栈，快速构建美观的管理界面，提升开发效率</li>
-                        <li>使用Vuex进行全局状态管理，确保复杂业务逻辑下的数据一致性</li>
-                        <li>使用Vue Router实现路由管理，支持动态路由和权限路由控制</li>
-                        <li>使用Axios封装统一的请求拦截器，实现了token管理、错误处理、请求重试等通用功能</li>
-                        <li>使用ECharts实现数据可视化展示，包括折线图、柱状图、饼图等多种图表类型</li>
-                        <li>使用jQuery处理复杂的DOM操作和第三方插件集成，提升开发效率</li>
-                        <li>实现了完善的权限控制系统，支持菜单权限和按钮权限的精细化管理</li>
-                        <li>通过代码优化和性能调优，系统响应速度提升40%，用户体验显著提升</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="project">
-                <div class="period">2023.06 - 2025.06</div>
-                <h3>EHR-企业人事管理系统</h3>
-                <div class="tech-stack">
-                    <span class="tech-tag">Vue 3</span>
-                    <span class="tech-tag">TypeScript</span>
-                    <span class="tech-tag">Vite</span>
-                    <span class="tech-tag">Arco Design</span>
-                    <span class="tech-tag">Pinia</span>
-                    <span class="tech-tag">Vue Router</span>
-                    <span class="tech-tag">ECharts</span>
-                    <span class="tech-tag">TinyMCE</span>
-                </div>
-                <div class="description">
-                    <p><strong>项目介绍：</strong>这是一个基于Vue 3 + TypeScript + Vite + Arco Design开发的企业级SaaS企业人事管理系统，作为公司EHR系统的重要组成部分，负责整个招聘流程、薪酬管理、组织人事的线上化管理。系统采用前后端分离架构，前端使用最新的Vue 3技术栈，实现了一个功能完整、性能优异的现代化Web应用。</p>
-                    <p><strong>核心模块：</strong></p>
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li><strong>招聘管理：</strong>简历筛选、面试安排、Offer发送全流程自动化，支持多渠道简历导入</li>
-                        <li><strong>薪酬管理：</strong>灵活的薪酬模板系统，支持多种薪酬结构配置和计算规则，自动生成工资单</li>
-                        <li><strong>考勤管理：</strong>打卡数据采集、统计分析、可视化展示，支持多种考勤规则配置</li>
-                        <li><strong>组织人事：</strong>组织架构管理、人员信息维护、人事变动流程管理</li>
-                        <li><strong>权限系统：</strong>基于RBAC的多级权限控制，支持菜单权限和按钮权限的精细化管理</li>
-                        <li><strong>数据可视化：</strong>通过ECharts实现薪酬数据、考勤数据、招聘数据等多维度可视化分析</li>
-                    </ul>
-                </div>
-                <div class="achievements">
-                    <h4>技术创新</h4>
-                    <ul>
-                        <li>采用Vue 3 Composition API开发，代码复用率提升40%，提升了代码的可维护性和可读性</li>
-                        <li>全面使用TypeScript进行开发，项目代码质量显著提升，Bug率降低30%，提升了开发效率</li>
-                        <li>实现了基于Vite的构建系统，开发环境编译速度提升200%，热更新响应时间缩短到毫秒级</li>
-                        <li>通过组件按需加载和路由懒加载，首屏加载时间减少40%，显著提升了用户体验</li>
-                        <li>设计了高效的状态管理方案（Pinia），确保了复杂薪酬计算场景下的数据一致性</li>
-                    </ul>
-                    <h4>业务价值</h4>
-                    <ul>
-                        <li>系统上线后，通过流程自动化和效率提升，为公司节约开支3年约200万元</li>
-                        <li>实现了薪酬管理全流程的数字化管理，招聘从简历筛选到发送offer全自动，人力资源部门工作效率提升50%</li>
-                        <li>通过数据可视化和大屏展示，帮助人力资源部门提升公司员工留存率，决策效率提升40%</li>
-                        <li>实现了完整的国际化解决方案，支持中英文切换，为公司的国际化业务提供了支持</li>
-                        <li>集成了完善的日志审计系统，保证薪酬数据的安全性和可追溯性，通过了等保三级认证</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="project">
-                <div class="period">2022.04 - 2025.06</div>
-                <h3>新平台广告管理系统</h3>
-                <div class="tech-stack">
-                    <span class="tech-tag">Vue.js</span>
-                    <span class="tech-tag">Element UI</span>
-                    <span class="tech-tag">Vuex</span>
-                    <span class="tech-tag">Vue Router</span>
-                    <span class="tech-tag">Axios</span>
-                    <span class="tech-tag">Webpack</span>
-                    <span class="tech-tag">ESLint</span>
-                </div>
-                <div class="description">
-                    <p><strong>项目介绍：</strong>这是一个基于Vue.js开发的跨境电商多平台广告管理系统，支持40多个主流电商平台的广告投放和商品管理，是公司核心业务系统之一。</p>
-                    <p><strong>支持平台：</strong></p>
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li><strong>东南亚市场：</strong>Shopee、Lazada、Tiktok、Blibli等</li>
-                        <li><strong>欧洲市场：</strong>Allegro、Cdiscount、Real、Fruugo等</li>
-                        <li><strong>美洲市场：</strong>Mercadolibre、B2W等</li>
-                        <li><strong>中东市场：</strong>Hepsiburada、Daraz等</li>
-                        <li><strong>日韩市场：</strong>Rakuten、Coupang、Yahoo等</li>
-                        <li><strong>新兴市场：</strong>TEMU、Fanno等</li>
-                    </ul>
-                </div>
-                <div class="achievements">
-                    <h4>核心功能模块</h4>
-                    <ul>
-                        <li><strong>广告管理：</strong>广告投放管理、广告效果分析（CTR、ROI等关键指标）、广告详情查看、广告计划制定与优化建议</li>
-                        <li><strong>商品管理：</strong>产品计划管理、商品属性配置、价格库存实时更新、批量商品操作（支持Excel导入导出）</li>
-                        <li><strong>店铺运营：</strong>店铺授权配置（OAuth认证）、账号权限管理、运营数据分析、系统日志管理（操作审计）</li>
-                        <li><strong>价格管理：</strong>跟卖价格实时监控、价格自动更新规则配置、促销活动管理、批量价格设置</li>
-                    </ul>
-                    <h4>技术特点</h4>
-                    <ul>
-                        <li>采用Element UI组件库，快速构建美观的界面，提升开发效率</li>
-                        <li>使用Vuex进行全局状态管理，处理复杂的多平台数据流转</li>
-                        <li>实现了多平台API的统一封装，降低了接入新平台的成本</li>
-                        <li>通过Webpack优化打包，生产环境代码体积减小30%</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="project">
-                <div class="period">2023.06 - 2024.08</div>
-                <h3>智能采集插件（Chrome Extension）</h3>
-                <div class="tech-stack">
-                    <span class="tech-tag">Chrome Extension</span>
-                    <span class="tech-tag">Manifest V3</span>
-                    <span class="tech-tag">JavaScript</span>
-                    <span class="tech-tag">IndexedDB</span>
-                    <span class="tech-tag">Content Script</span>
-                    <span class="tech-tag">API集成</span>
-                </div>
-                <div class="description">
-                    <p><strong>项目介绍：</strong>本项目是一款基于现代Web技术开发的Chrome扩展程序，专门用于从Boss直聘平台智能采集候选人信息，并自动同步至企业招聘管理系统。作为企业EHR系统的重要组成部分，本插件实现了招聘数据采集的自动化，大幅提升了招聘流程效率。</p>
-                    <p><strong>核心功能：</strong></p>
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li>智能识别和提取候选人基本信息（姓名、年龄、学历、工作经验等）</li>
-                        <li>自动下载简历附件（PDF/Word格式）并解析关键信息</li>
-                        <li>批量导入候选人数据到企业招聘系统</li>
-                        <li>智能字段映射，自动匹配候选人信息到系统字段</li>
-                        <li>生成人才标签，支持快速筛选与检索</li>
-                        <li>支持断点续传，数据采集中断后可继续</li>
-                    </ul>
-                </div>
-                <div class="achievements">
-                    <h4>技术创新与优化</h4>
-                    <ul>
-                        <li>引领前端技术革新，采用Manifest V3最新规范，显著提升扩展的安全性与性能，通过Chrome Web Store审核</li>
-                        <li>利用Chrome API高效实现内容脚本，精确捕获页面数据，数据处理能力提升50%</li>
-                        <li>引入IndexedDB进行本地数据缓存，支持无缝续传，优化用户体验，数据丢失率降低至0</li>
-                        <li>实施先进的反爬策略，包括请求频率控制与随机延迟机制，保障数据采集的稳定性，封禁率降低80%</li>
-                        <li>对接公司招聘系统API，实现候选人信息采集及招聘集成一站式操作，数据同步时间缩短90%</li>
-                        <li>实现简历附件的自动下载与解析（PDF/Word格式），简化数据输入流程，支持格式识别准确率达到98%</li>
-                    </ul>
-                    <h4>业务成效显著</h4>
-                    <ul>
-                        <li>通过自动化信息采集，将HR人工录入时间缩短90%，显著提升招聘效率，日均处理简历量从50份提升到500份</li>
-                        <li>推出的一键批量导入功能，使HR日均处理简历量翻倍，达到200%的增长</li>
-                        <li>引入智能字段映射技术，确保数据准确率超95%，大幅提升数据质量，减少了人工核对的成本</li>
-                        <li>优化数据管理流程，统一人才数据存储，解决多渠道信息分散问题，数据检索效率提升60%</li>
-                        <li>自动生成人才标签，支持快速筛选与检索，加速人才匹配过程，匹配准确率提升40%</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="project">
-                <div class="period">2021.12 - 2022.04</div>
-                <h3>全通优拍后台管理系统</h3>
-                <div class="tech-stack">
-                    <span class="tech-tag">Vue.js</span>
-                    <span class="tech-tag">Element UI</span>
-                    <span class="tech-tag">Vuex</span>
-                    <span class="tech-tag">Vue Router</span>
-                    <span class="tech-tag">Axios</span>
-                    <span class="tech-tag">Postman</span>
-                </div>
-                <div class="description">
-                    <p><strong>项目介绍：</strong>全通优拍后台管理系统根据全通实业集团在进行产品拍卖以及出售时，大量业务处理工作而开发的管理平台。系统主要包含订单管理、拍品管理、上拍管理以及用户管理等核心功能模块。</p>
-                    <p><strong>功能模块：</strong></p>
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li><strong>订单管理：</strong>订单查询、订单状态跟踪、订单统计、订单导出</li>
-                        <li><strong>拍品管理：</strong>拍品信息录入、拍品图片上传、拍品分类管理、拍品上下架</li>
-                        <li><strong>上拍管理：</strong>拍卖场次创建、拍品上拍、拍卖时间设置、拍卖规则配置</li>
-                        <li><strong>用户管理：</strong>用户信息管理、用户权限分配、用户行为统计</li>
-                        <li><strong>权限管理：</strong>基于角色的权限控制（RBAC），支持菜单权限和操作权限</li>
-                        <li><strong>可视化大屏：</strong>实时数据展示、拍卖数据统计、业务指标监控</li>
-                    </ul>
-                </div>
-                <div class="achievements">
-                    <h4>技术实现</h4>
-                    <ul>
-                        <li>基于Element UI搭建页面，快速构建美观的管理界面，提升用户体验</li>
-                        <li>使用Postman进行接口测试，确保接口的正确性和稳定性，接口测试覆盖率100%</li>
-                        <li>通过axios调用后端API，实现前后端数据交互，封装了统一的请求和响应拦截器</li>
-                        <li>使用动态路由进行用户权限的分配，不同角色看到不同的功能模块，提升了系统的安全性</li>
-                        <li>使用beforeEach全局前置守卫+axios+token拦截器进行全局拦截，实现权限登录和token刷新机制</li>
-                        <li>使用Vuex进行状态管理，管理用户信息、权限信息等全局状态，确保数据的一致性</li>
-                        <li>使用props、$emit、eventBus实现组件之间的通信，提升了组件的复用性</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills -->
-        <section id="skills" class="section fade-in">
-            <h2 class="section-title">专业技能</h2>
-            <div class="skills">
-                <div class="skill-category">
-                    <h3>前端基础技术</h3>
-                    <ul>
-                        <li>HTML5、CSS3、JavaScript（ES6+）</li>
-                        <li>jQuery（DOM操作、事件处理）</li>
-                        <li>响应式布局（Flex、Grid）</li>
-                        <li>CSS预处理器（Sass、Less）</li>
-                        <li>面向对象编程（OOP）</li>
-                        <li>函数式编程思想</li>
-                        <li>浏览器兼容性处理</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>前端框架与库</h3>
-                    <ul>
-                        <li>Vue.js 2/3（Composition API）</li>
-                        <li>Vue Router（路由管理）</li>
-                        <li>Vuex / Pinia（状态管理）</li>
-                        <li>React（基础了解）</li>
-                        <li>uni-app（跨平台开发）</li>
-                        <li>微信小程序开发</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>UI框架与组件库</h3>
-                    <ul>
-                        <li>Element UI / Element Plus</li>
-                        <li>Arco Design</li>
-                        <li>uView 2.x</li>
-                        <li>Ant Design Vue</li>
-                        <li>Vant（移动端）</li>
-                        <li>自定义组件开发</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>工程化与构建工具</h3>
-                    <ul>
-                        <li>Vite（构建工具）</li>
-                        <li>Webpack（模块打包）</li>
-                        <li>TypeScript（类型系统）</li>
-                        <li>ESLint（代码规范）</li>
-                        <li>Git（版本控制）</li>
-                        <li>npm / yarn / pnpm</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>数据可视化与工具</h3>
-                    <ul>
-                        <li>ECharts（数据可视化）</li>
-                        <li>Axios / Fetch（HTTP请求）</li>
-                        <li>Postman（接口测试）</li>
-                        <li>Mock.js（数据模拟）</li>
-                        <li>Chrome DevTools（调试工具）</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>扩展技术</h3>
-                    <ul>
-                        <li>Chrome Extension开发</li>
-                        <li>Manifest V3规范</li>
-                        <li>IndexedDB（本地存储）</li>
-                        <li>Node.js（基础）</li>
-                        <li>Express框架（了解）</li>
-                        <li>MongoDB / MySQL（了解）</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>开发工具与协作</h3>
-                    <ul>
-                        <li>VS Code / Cursor（编辑器）</li>
-                        <li>Git / SVN（版本控制）</li>
-                        <li>Jira / Confluence（项目管理）</li>
-                        <li>Figma / Sketch（设计协作）</li>
-                        <li>Postman / Apifox（API测试）</li>
-                        <li>AI工具应用（提升效率）</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>软技能</h3>
-                    <ul>
-                        <li>前端架构设计能力</li>
-                        <li>性能优化经验</li>
-                        <li>代码重构能力</li>
-                        <li>团队协作与沟通</li>
-                        <li>问题分析与解决</li>
-                        <li>持续学习与分享</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education -->
-        <section id="education" class="section fade-in">
-            <h2 class="section-title">教育经历</h2>
-            <div class="timeline-item">
-                <div class="period">2016 - 2021</div>
-                <h3>计算机科学与技术</h3>
-                <div class="company">西安思源学院 | 本科</div>
-                <div class="description">
-                    <p>在校期间系统学习了计算机科学与技术专业核心课程，包括数据结构、算法设计、数据库原理、操作系统、计算机网络等。通过课程学习和实践项目，培养了扎实的编程基础和解决问题的能力。</p>
-                    <ul>
-                        <li>主修课程：数据结构与算法、数据库系统、操作系统、计算机网络、软件工程、Web开发等</li>
-                        <li>实践项目：设计会议室预约系统及校车管理系统，积累了丰富的开发经验</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #e0e0e0; color: #999; font-size: 12px;">
+            本原型图展示了倾理理发店预约小程序的核心功能和界面布局
+        </div>
     </div>
-
-    <footer>
-        <p style="font-size: 1.2em; margin-bottom: 15px; font-weight: 600;">© 2025 王攀个人简历</p>
-        <p>本站为个人简历展示网站，所有信息真实有效</p>
-        <p style="margin-top: 15px; opacity: 0.8;">期望职位：前端开发工程师 | 期望城市：西安</p>
-    </footer>
-
-    <script>
-        // 平滑滚动
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offsetTop = target.offsetTop - 80;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // 滚动动画 - 优化配置，提前触发动画
-        const observerOptions = {
-            threshold: 0.01,
-            rootMargin: '0px 0px 200px 0px'  // 提前200px触发，让内容更早显示
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    // 动画完成后停止观察，提升性能
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        // 使用 requestAnimationFrame 优化初始观察
-        requestAnimationFrame(() => {
-            document.querySelectorAll('.fade-in').forEach(el => {
-                observer.observe(el);
-            });
-        });
-
-        // 导航高亮 - 添加节流优化性能
-        let ticking = false;
-        const updateNav = () => {
-            const sections = document.querySelectorAll('.section');
-            const navLinks = document.querySelectorAll('.nav a');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-            
-            ticking = false;
-        };
-
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                window.requestAnimationFrame(updateNav);
-                ticking = true;
-            }
-        });
-    </script>
 </body>
 </html>
